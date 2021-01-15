@@ -1,0 +1,32 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ title }}</mat-card-title>
+        <mat-card-subtitle>{{ subTitleAPP }}</mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="imgSrc; else defalutImg" mat-card-image src="{{ imgSrc }}" alt="Photo of a Shiba Inu">
+    <ng-template #defalutImg>
+        <img mat-card-image src="{{ img1 }}" alt="Photo of a Shiba Inu">
+    </ng-template>
+    <mat-card-content>
+        <p *ngIf="activeDescription; else defaultDescription">
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        </p>
+        <ng-template #defaultDescription>
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+        </ng-template>
+        <div *ngFor="let skill of skills, index as i">
+            {{ i+1 }} - {{ skill }}
+            <div [ngSwitch]="skill">
+                <div *ngSwitchCase="'Protector'">El shiba es un perro</div>
+                <div *ngSwitchCase="'Paciente'">El shiba es un gato</div>
+                <div *ngSwitchDefault>El shiba simplemente es</div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="chgImg1($event)">IMG 1</button>
+        <button mat-button (click)="chgImg2()">IMG 2</button>
+    </mat-card-actions>
+</mat-card>
