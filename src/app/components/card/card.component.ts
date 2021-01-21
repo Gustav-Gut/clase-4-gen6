@@ -15,6 +15,8 @@ export class CardComponent implements OnInit {
   public img1: string = 'https://material.angular.io/assets/img/examples/shiba1.jpg';
   public img2: string = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
   public imgSrc: string = 'Sin URL';
+  public nameBreed: string = 'Shiba Inu';
+  public val: number = 1250;
 
   @Input() subTitleAPP: string;
   @Input() description: boolean;
@@ -36,6 +38,10 @@ export class CardComponent implements OnInit {
   chgImg2() {
     this.imgSrc = this.img2;
     this.myEvent.emit(this.imgSrc);
+  }
+
+  showVar() {
+    console.log('nameBreed -->', this.nameBreed);
   }
 
 }
